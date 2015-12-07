@@ -49,21 +49,20 @@ int main()
 	// initialise SDL and check that it worked otherwise exit
 	// see here for details http://wiki.libsdl.org/CategoryAPI
 
-	char image[] = "/Users/albertolascala/Documents/Lectures/PPP/Invaders/invaders.png"; //InvaderA2.bmp";
+  char image[] = "/home/i7434091/Lectures/PPP/Invaders/invaders.png"; //InvaderA2.bmp";
 	SDL_Texture *tex = 0;
 	tex = createTexture(image, ren);
 
-	char playerImageName[] = "/Users/albertolascala/Documents/Lectures/PPP/Invaders/Player.png";
+  char playerImageName[] = "/home/i7434091/Lectures/PPP/Invaders/Player.bmp";
 	Player player = initializePlayer(playerImageName, ren);
-
-	char bulletImageName[] = "/Users/albertolascala/Documents/Lectures/PPP/Invaders/Bullet.png";
+  char bulletImageName[] = "/home/i7434091/Lectures/PPP/Invaders/Bullet.png";
 	Bullet playerBullet = initializeBullet(bulletImageName, ren, 30);
 	Bullet invadersBullet = initializeBullet(bulletImageName, ren,30);
 
 	if(tex == 0 || player.texture == 0 || playerBullet.texture == 0)
 	{
 		printf("IMG_Load: %s\n", IMG_GetError());
-		return EXIT_FAILURE;
+    return EXIT_FAILURE;
 	}
 
 

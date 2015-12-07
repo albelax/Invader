@@ -35,8 +35,10 @@ Player initializePlayer(char nameImageIn[], SDL_Renderer* rendererIn)
 {
 	Player player;
 	// basically the constructor of the player
-	player.src.w = SPRITEBLOCK_W;
+  player.src.w = SPRITEBLOCK_W;
 	player.src.h = SPRITEBLOCK_H;
+  player.src.x = 0;
+  player.src.y = 0;
 
 	player.dst.x = WIDTH/2;
 	player.dst.y = HEIGHT - (HEIGHT/10);
@@ -168,9 +170,9 @@ int Delay()
 	*/
 	static int block;
 	static int frame = 0;
-	int speed = 200;
+  int speed = 20;
 
-	if (block % (SPRITEBLOCK_H/speed) == 0)
+  if (block % (SPRITEBLOCK_H/speed) == 0)
 	{
 		frame = (block*speed);
 	}
@@ -332,10 +334,10 @@ SDL_Rect invaderShoot(Invader invaders[ROWS][COLS])
 
 	int count = ShootingInvaders(invaders, activeInvaders);
 
-	int r = (rand()*rand()) %count;
-	if (r >= 0 && r < count)
+  int r = (rand()) %count;
+  if (r >= 0 && r < count)
 	{
-		if (activeInvaders[r].active == 1)
+    if (activeInvaders[r].active == 1)
 			ret = activeInvaders[r].pos;
 	}
 	return ret;
